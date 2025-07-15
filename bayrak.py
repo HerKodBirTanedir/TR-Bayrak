@@ -27,3 +27,38 @@ def draw_star(center_x, center_y, radius, rotation_angle=0):
 
     # Hesaplanan koordinatlarla bir yıldız oluştur
     return patches.Polygon(coords, closed=True, color='white')
+
+def draw_flag():
+    # Yeni bir figür (pencere) ve eksen (çizim alanı) oluştur
+    fig, ax = plt.subplots()
+    ax.set_aspect('equal') # Oranları koru
+    ax.set_xlim(0, L)      # X ekseni limitleri
+    ax.set_ylim(0, G)      # Y ekseni limitleri
+    ax.axis('off')         # Eksenleri gizle, sadece bayrak görünsün
+
+    # Kırmızı zemin
+    ax.add_patch(patches.Rectangle((0, 0), L, G, color='#E30A17'))
+
+    # Hilal 
+    outer_center = (M + A, G/2)
+    outer_r = B / 2
+    inner_center = (outer_center[0] + C, G/2)
+    inner_r = D / 2
+
+    # Beyaz dış daireyi çiz
+    ax.add_patch(patches.Circle(outer_center, outer_r, color='white'))
+
+    # Kırmızı iç daireyi çizerek hilal şeklini oluştur
+    ax.add_patch(patches.Circle(inner_center, inner_r, color='#E30A17'))
+
+    # Yıldız konumu ve çizimi
+    star_center = (inner_center[0] + E + F / 6, G / 2)
+    star_rotation_angle = -40  # Yıldızı sola doğru -40 derece çevir
+    star = draw_star(star_center[0], star_center[1], F / 2, star_rotation_angle)
+    ax.add_patch(star) # Yıldızı ekrana ekle 
+
+    # Çizimi göster
+    plt.show()
+
+# draw_flag fonksiyonunu çalıştır
+draw_flag()
