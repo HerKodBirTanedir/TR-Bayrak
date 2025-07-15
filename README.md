@@ -1,3 +1,5 @@
+![Türk Bayrağı](resim\bayrak.png)
+
 # Python İle Türk Bayrağı Çizimi
 
 Python programlama dili ve matplotlib kütüphanesini kullanarak Türk bayrağı çizeceğiniz bir projedir. 
@@ -14,8 +16,6 @@ Bu proje, hem görsel programlama becerilerinizi geliştirmek hem de bayrağım�
 
 `.\activate.bat`   'sanal ortamı çalıştıralım' 
 
-
-
 Sanal ortamı geçiş yapınca terminalimizin görünümü aşağıdaki gibi olmalı yani sanal ortam yazısı görünmeli. 
 Not: VSCode da, powershell terminalinde sorun çıkabilir. VSCode cmd terminalini deneyebilirsiniz.   
 
@@ -24,34 +24,36 @@ Not: VSCode da, powershell terminalinde sorun çıkabilir. VSCode cmd terminalin
 Sonrasında matplotlib,numpy kütüphanesini kuralım. matplotlib kurulumu sırasında numpy kuracaktır. matplotlib kurulumundan sonra
 'pip list' çalıştırarak kontrol ediniz numpy kurulumunu.
 
-pip install matplotlib
-pip install numpy
+`pip install matplotlib`
+`pip install numpy`
 
 
 
 Sonrasında bayrak.py dosyamızı oluşturalım ve  projemiz için gerekli olan kütüphaneleri içe aktaralım.
 
 `import matplotlib.pyplot as plt` 'Bu kütüphane, Python'da grafikler ve çizimler oluşturmak için temel bir araçtır. plt olarak takma ad kullanacağız.'
+
 `import matplotlib.patches as patches` 'Bu kütüphane, dikdörtgenler, daireler ve çokgenler gibi temel şekilleri çizmek için gereken sınıfları içerir. Bayrağımızın farklı kısımlarını çizmek için kullanacağız.'
+
 `import numpy as np` 'Sayısal işlemler için kullanılan bu kütüphanedir, yıldızın koordinatlarını hesaplarken trigonometrik fonksiyonlardan yararlanmamızı sağlayacaktır.'
 
 ## 2.Adım: Türk Bayrağı Oranlarını Tanımlama
 
-'''
-'Bayrak oranları (Genişlik = G)'
+```
+#Bayrak oranları (Genişlik = G)'
 G = 1.0
-A = 0.5 * G         ' Ay dış merkezinin kaçak kenar uzaklığı'
-B = 0.5 * G         ' Ay dış dairesinin çapı'
-C = 0.0625 * G      ' Ay iç ve dış merkezler arası'
-D = 0.4 * G         ' Ay iç dairesinin çapı'
-E = (1/3) * G       ' Yıldız dairesinin ay iç dairesinden uzaklığı'
-F = 0.25 * G        ' Yıldız dairesinin çapı'
-L = 1.5 * G         ' Bayrağın boyu (uzunluk)'
-M = (1/30) * G      ' kaçak kenar genişliği'
-'''
+A = 0.5 * G         # Ay dış merkezinin kaçak kenar uzaklığı
+B = 0.5 * G         # Ay dış dairesinin çapı
+C = 0.0625 * G      # Ay iç ve dış merkezler arası
+D = 0.4 * G         # Ay iç dairesinin çapı
+E = (1/3) * G       # Yıldız dairesinin ay iç dairesinden uzaklığı
+F = 0.25 * G        # Yıldız dairesinin çapı
+L = 1.5 * G         # Bayrağın boyu (uzunluk)
+M = (1/30) * G      # kaçak kenar genişliği
+```
 
 ## 3.Adım: Yıldız Çizme Fonksiyonu: draw_star
-'''
+```
 def draw_star(center_x, center_y, radius, rotation_angle=0):
     coords = []
     for i in range(10):
@@ -66,10 +68,10 @@ def draw_star(center_x, center_y, radius, rotation_angle=0):
 
     # Hesaplanan koordinatlarla bir yıldız oluştur
     return patches.Polygon(coords, closed=True, color='white')
-'''
+```
 
 ## 4.Adım: Türk Bayrağını Çizme Fonksiyonu: draw_flag
-'''
+```
 def draw_flag():
     # Yeni bir figür (pencere) ve eksen (çizim alanı) oluştur
     fig, ax = plt.subplots()
@@ -104,8 +106,7 @@ def draw_flag():
 
 
 draw_flag() # draw_flag fonksiyonunu çalıştır
-
-'''
+```
 
 ## Video Ders için
 [Türk Bayrağı Çizim Dersi](https://youtu.be/lJ0ub-MIps4)
