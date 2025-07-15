@@ -1,4 +1,4 @@
-![Türk Bayrağı](resim\bayrak.png)
+![Türk Bayrağı](resim/bayrak.png)
 
 # Python İle Türk Bayrağı Çizimi
 
